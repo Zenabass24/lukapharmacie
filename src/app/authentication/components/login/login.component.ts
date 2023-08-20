@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  username!: String
-  password!: String
+  nom: String = "Itoua"
+  public username!: String
+  public password!: String
 
   constructor () {
     this.username = ''

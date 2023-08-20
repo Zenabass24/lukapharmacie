@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeComponent } from './vues/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { ProduitsComponent } from './vues/produits/produits.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProduitsComponent
   ],
   imports: [
     BrowserModule,
