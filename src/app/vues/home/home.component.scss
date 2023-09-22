@@ -1,0 +1,147 @@
+.home_container {
+  // background-image: url("../../../assets/bg.jpg")!important;
+  background-size: cover;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  // border: solid 1px green;
+}
+
+
+.toolbar {
+  width: 100%;
+  height: 40px;
+  border: solid 1px grey;
+}
+
+.actions {
+//   // border: solid 1px red;
+//   position: relative;
+//   top: 20%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+  .administration {
+    // background-color: var(--primary-luka-color);
+    background-color: var(--green-luka-color);
+
+  }
+
+  .parametre {
+    // background-color: var(--green-luka-color);
+    background-color: var(--green-luka-color);
+
+  }
+
+  .materiel {
+    // background-color: var(--orange-luka-color);
+    background-color: var(--green-luka-color);
+  }
+
+  .maintenance {
+    // background-color: var(--yellow-luka-color);
+    background-color: var(--green-luka-color);
+  }
+
+  .edition {
+    // background-color: var(--green-second-luka-color);
+    background-color: var(--green-luka-color);
+
+  }
+
+  .stocks {
+    // background-color: var(--pink-luka-color);
+    background-color: var(--green-luka-color);
+
+  }
+
+  mat-card {
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+  }
+
+  mat-card:active {
+    box-shadow: var(--box-shadow);
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+
+    .material-icons {
+      font-size: 40px;
+      // position: relative;
+      // transition: transform 1s ease-in-out;
+    }
+
+    .text {
+      // position: relative;
+      // transition: transform 0.5s ease-in-out;
+    }
+
+
+
+  }
+
+  mat-card:hover {
+    // border: solid 1px red!important;
+    .material-icons {
+      // transition: transform 1s ease-in-out;
+      animation: moveright 1s forwards;
+    }
+
+    .text {
+      // transition: transform 1s ease-in-out;
+      animation: moveleft 1s forwards;
+    }
+  }
+
+  .disconnect_container {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #ddd;
+    cursor: pointer;
+  }
+
+
+  @keyframes moveright {
+    0%{
+      transform: translateX(0px);
+    }
+    100%{
+      transform: translateX(10px);
+    }
+    // 0% {
+    //   left: -10px;
+    // }
+    // 100% {
+    //   left: 10px;
+    // }
+  }
+
+  @keyframes moveleft {
+    0%{
+      transform: translateX(0px);
+    }
+    100%{
+      transform: translateX(-10px);
+    }
+  }
+
+
+
+
+  .footer {
+    width: 100%;
+    height: 40px;
+    border: solid 1px grey;
+  }

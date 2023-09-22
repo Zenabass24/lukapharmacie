@@ -1,0 +1,119 @@
+<div class="card">
+
+    <mat-progress-spinner class = "registering" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
+  
+    <form>
+  
+        <div class="banner" style = "text-align: center;">Enregistrement</div>
+  
+        <div class="form-group p-4" *ngIf="!showSpinner">
+
+        <!-- Type -->
+        <div class="form-item">
+            <mat-form-field appearance="fill">
+            <mat-label>Type de pharmacie</mat-label>
+            <mat-select name = "">
+                <!-- <mat-option *ngFor="let materiel of materiels" [value]=""> -->
+                <mat-option  [value]="">
+                <!-- {{materiel.libelleMat}} -->
+                </mat-option>
+                <mat-option [value]="'DAY'">Pharmacie de Jour</mat-option>
+                <mat-option [value]="'NIGHT'">Pharmacie de Nuit</mat-option>
+                <mat-option [value]="'GARDE'">Pharmacie de Garde</mat-option>
+                <mat-option [value]="'H24'">Pharmacie 24h/24</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- Nom de pharmacie -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Nom pharmacie</mat-label>
+            <div class="d-flex">
+
+            <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+            <input type = "number" matInput name = "nomPharm" >
+
+            </div>
+        </mat-form-field>
+
+        <!-- Adresse -->
+        <div class="form-item">
+            <mat-form-field class="example-full-width">
+                <mat-label>Adresse</mat-label>
+                <div class="d-flex">
+    
+                <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                <input type = "text" matInput name = "adresse" >
+    
+                </div>
+            </mat-form-field>
+        </div>
+
+        <!-- Coordonnées -->
+        <div class="form-item">
+            <mat-label>Coordonnées</mat-label>
+            <div class="d-flex">
+                <mat-form-field class="left">
+                    <mat-label>Longitude</mat-label>
+                    <div class="d-flex">
+        
+                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                    <input type = "number" matInput name = "longitude" >
+        
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="right">
+                    <mat-label>Latitude</mat-label>
+                    <div class="d-flex">
+        
+                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                    <input type = "number" matInput name = "latitude" >
+        
+                    </div>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <!-- Horaires -->
+        <div class="form-item">
+            <mat-label>Horaires</mat-label>
+            <div class="d-flex">
+                <mat-form-field class="left">
+                    <mat-label>Ouverture</mat-label>
+                    <div class="d-flex">
+        
+                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                    <input type = "time" matInput name = "longitude" >
+        
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="right">
+                    <mat-label>Fermeture</mat-label>
+                    <div class="d-flex">
+        
+                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                    <input type = "time" matInput name = "latitude" >
+        
+                    </div>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        </div>
+
+        <div class="btn-group p-4">
+        <button class="annuler" (click) = "cancelCreation()">Annuler</button>
+        <button type="submit" (click) = "registerCommande()">Valider</button>
+        <!-- <button type="submit" >Valider</button> -->
+        </div>
+
+    </form>
+  
+  </div>
+  

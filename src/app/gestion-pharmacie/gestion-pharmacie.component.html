@@ -1,0 +1,37 @@
+<div class="page_container">
+    <app-toolbar [inputSidenav]="sideMatNav" [title]="'Gestion pharmacie'" [color_]="'var(--green-luka-color)'"></app-toolbar>
+  
+    <mat-sidenav-container style="z-index: 0;">
+      <mat-sidenav #sideMatNav mode="side" style="width: 200px; background-color: var(--green-luka-color);">
+  
+        <nav class="side-menu">
+  
+          <div class = "item-menu" [routerLink]="['produits']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/produits') }">
+            <span class="material-icons">person</span>
+            <span class="item-menu-label">Produits</span>
+          </div>
+  
+          <div class = "item-menu" [routerLink]="['commandes']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/commandes') }">
+            <span class="material-icons">person</span>
+            <span class="item-menu-label">Commandes</span>
+          </div>
+  
+          <div class = "item-menu" [routerLink]="['missions']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/missions') }">
+            <span class="material-icons">person</span>
+            <span class="item-menu-label">Missions</span>
+          </div>
+  
+        </nav>
+  
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+  
+        <router-outlet></router-outlet>
+  
+      </mat-sidenav-content>
+  
+    </mat-sidenav-container>
+  
+</div>
+  

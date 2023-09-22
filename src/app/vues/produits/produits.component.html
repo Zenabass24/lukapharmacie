@@ -1,2 +1,32 @@
-<p>produits works!</p>
-1234567890
+<div class="page_container">
+    <app-toolbar [inputSidenav]="sideMatNav" [title]="'Pharmacies'" [color_]="'var(--primary-luka-color)'"></app-toolbar>
+  
+    <mat-sidenav-container style="z-index: 0;">
+      <mat-sidenav #sideMatNav mode="side" style="width: 200px; background-color: var(--primary-luka-color);">
+  
+        <nav class="side-menu">
+  
+          <div class = "item-menu" [routerLink]="['list']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/users') }">
+            <span class="material-icons">person</span>
+            <span class="item-menu-label">Produits</span>
+          </div>
+  
+          <div class = "item-menu" [routerLink]="['roles']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/roles') }">
+            <span class="material-icons">person</span>
+            <span class="item-menu-label">Agents</span>
+          </div>
+  
+        </nav>
+  
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+  
+        <router-outlet></router-outlet>
+  
+      </mat-sidenav-content>
+  
+    </mat-sidenav-container>
+  
+  </div>
+  

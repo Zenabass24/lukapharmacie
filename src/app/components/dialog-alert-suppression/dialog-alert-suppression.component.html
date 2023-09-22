@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Attention</h2>
+<mat-dialog-content>
+  <span>Voulez-vous vraiment supprimer cet élément ? </span>
+  <mat-list class = "d-flex">
+    <mat-list-item *ngFor="let choice of data.choices" (click)="onChoiceSelected(choice)">
+      {{ choice }}
+    </mat-list-item>
+  </mat-list>
+</mat-dialog-content>

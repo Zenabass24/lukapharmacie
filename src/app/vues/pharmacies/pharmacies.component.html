@@ -1,0 +1,36 @@
+<div class="page_container">
+  <app-toolbar [inputSidenav]="sideMatNav" [title]="'Pharmacies'" [color_]="'var(--primary-luka-color)'"></app-toolbar>
+
+  <mat-sidenav-container style="z-index: 0;">
+    <mat-sidenav #sideMatNav mode="side" style="width: 200px; background-color: dodgerblue;">
+
+      <nav class="side-menu">
+
+        <div class = "item-menu" [routerLink]="['list']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/users') }">
+          <span class="material-icons">person</span>
+          <span class="item-menu-label">Pharmacies</span>
+        </div>
+
+        <div class = "item-menu" [routerLink]="['roles']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/roles') }">
+          <span class="material-icons">person</span>
+          <span class="item-menu-label">Agents</span>
+        </div>
+
+        <div class = "item-menu" [routerLink]="['roles']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/roles') }">
+          <span class="material-icons">person</span>
+          <span class="item-menu-label">Roles</span>
+        </div>
+
+      </nav>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>

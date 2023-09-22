@@ -1,0 +1,180 @@
+<div class="card">
+
+  <mat-progress-spinner class = "registering" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
+
+  <!-- <form (ngSubmit) = "registerUser()"> -->
+    <form>
+    <!-- <form [formGroup]="formGroup"> -->
+
+    <div class="form-group" *ngIf="!showSpinner">
+
+      <!-- Nom et pernom -->
+      <div class="form-item">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Nom</mat-label>
+                <div class="d-flex">
+                  <!-- <span class="material-icons">
+                    person
+                  </span> -->
+                  <input name = "nom" [(ngModel)] = "dataUser.name" matInput>
+                </div>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Prenom</mat-label>
+                <div class="d-flex">
+                  <!-- <span class="material-icons">
+                    person
+                  </span> -->
+                  <input name = "prenom" [(ngModel)] = "dataUser.firstname" matInput>
+                </div>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Date de naissance -->
+      <div class="form-item">
+        <mat-form-field appearance="fill">
+          <mat-label>Date de naissance</mat-label>
+          <input name = "dateNaiss" matInput [matDatepicker]="picker" [(ngModel)] = "dataUser.birthdate">
+          <mat-hint>Format MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Fonction</mat-label>
+        <div class="d-flex">
+          <!-- <span class="material-icons">
+            person
+          </span> -->
+          <input type = "text" matInput name = "fonction" [(ngModel)] = "dataUser.fonction">
+
+        </div>
+      </mat-form-field>
+
+      <!-- telephone -->
+      <div class="form-item" >
+        <mat-form-field class="example-full-width">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+242 &nbsp;</span>
+          <input type="tel" name = "telephone" matInput placeholder="06 555 55 55" [(ngModel)] = "dataUser.telephone">
+        </mat-form-field>
+      </div>
+
+      <!-- email -->
+      <div class="form-item" >
+        <!-- <span class="material-icons">
+          email
+        </span> -->
+        <mat-form-field class="email-input">
+          <mat-label>Email</mat-label>
+          <input type="email" name = "email" matInput
+                placeholder="Ex. sijit@gmail.com" [(ngModel)] = "dataUser.email">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Veillez entrer une adresse valide
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            L'email est <strong>requis</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- <input type="email" placeholder="Adresse mail" name = "email" ngModel > <br> <br> -->
+      </div>
+
+
+      <!-- username -->
+      <div class="form-item">
+        <!-- <span class="material-icons">
+          lock
+        </span> -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Nom d'utilisateur</mat-label>
+          <input name = "nom_utilisateur" matInput placeholder="Nom d'utilisateur" value="" type = "text" [(ngModel)] = "dataUser.username">
+        </mat-form-field>
+        <!-- <input type="password" placeholder="Mot de passe" name="password" ngModel  > <br> <br> -->
+      </div>
+
+      <!-- password -->
+      <div class="form-item">
+        <!-- <span class="material-icons">
+          lock
+        </span> -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input name = "mot_de_pass" matInput placeholder="Mot de passe" value="" type = "password" [(ngModel)] = "dataUser.password">
+        </mat-form-field>
+        <!-- <input type="password" placeholder="Mot de passe" name="password" ngModel  > <br> <br> -->
+      </div>
+
+      <!-- role -->
+      <div class="form-item">
+        <mat-form-field appearance="fill">
+          <mat-label>Droits</mat-label>
+          <mat-select name = "role" [(ngModel)]="dataUser.role">
+            <mat-option *ngFor="let role of roles" [value]="role.id">
+              {{role.nom_role}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Service -->
+      <div class="form-item" *ngIf="dataUser.role==5">
+        <mat-form-field appearance="fill">
+          <mat-label>Service</mat-label>
+          <mat-select name = "service" [(ngModel)]="dataUser.service">
+            <mat-option *ngFor="let service of services" [value]="service.idService">
+              {{service.nomService}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- <mat-form-field>
+        <input matInput [(ngModel)]="selectedValue" [matAutocomplete]="auto" placeholder="Rechercher...">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choix du service</mat-label>
+        <input name = "service" type="text" matInput [matAutocomplete]="auto" [(ngModel)]="service_choose">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onOptionSelected($event)">
+          <mat-option *ngFor="let service of services" [value]="service_choose">
+            {{service.nomService}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      {{service_choose}} -->
+
+
+
+      <div class="form-item" *ngIf="dataUser.role==4">
+
+      </div>
+
+
+    </div>
+
+
+    <div class="btn-group">
+      <button class="annuler" (click) = "onClose()">Annuler</button>
+      <button type="submit" (click) = "registerUser()">Valider</button>
+      <!-- <button type="submit" >Valider</button> -->
+    </div>
+
+  </form>
+
+</div>

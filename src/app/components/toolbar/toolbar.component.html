@@ -1,0 +1,85 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner" [style.background-color]="color_" [style.color]="text_color_">
+
+    <div class="menu" (click) = "inputSidenav.toggle()">
+
+      <span class="material-icons">
+        menu
+      </span>
+
+    </div>
+
+    <!-- <img
+      width="20"
+      alt="skytech logo"
+      src="../assets/logo.jpeg"
+    /> -->
+
+    <span class="material-icons" (click)="goBack()" *ngIf="user.role=='DEV'||user.role=='ADMIN'">
+      arrow_back_ios
+    </span>
+
+    <span class="title">{{title}}</span>
+
+    <div class="infos-user">
+
+      <button mat-button style="padding: 0 10px; cursor: pointer;">
+        {{user.prenom}} {{user.nom}},
+      </button>
+
+      <span> {{user.fonction}}</span>
+
+
+
+      <span class="material-icons" [matMenuTriggerFor]="menu">account_circle</span> <br>
+
+      <mat-menu #menu="matMenu">
+
+        <!-- <button mat-menu-item>
+          <span class="material-icons logout">account_circle</span>
+
+          <span> Rôle</span>
+        </button> -->
+        <button mat-menu-item (click) = 'onDisconnect()' >
+          <span class="material-icons logout">logout</span>
+
+          <span>Se déconnecter</span>
+        </button>
+
+      </mat-menu>
+
+      <style>
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+        }
+
+        .logout {
+          font-size: 20px;
+        }
+
+        span {
+          font-size: 15px;
+        }
+
+        button:active {
+          color: orange;
+        }
+      </style>
+
+
+    </div>
+
+  </div>
+
+  <style>
+
+    mat-menu-item:hover {
+      background-color: orange;
+    }
+
+  </style>
+
+  <script src="../../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -1,0 +1,41 @@
+mat-form-field {
+    // border: solid 1px red;
+    width: 100%;
+}
+
+.left {
+    margin-right: 2px;
+}
+
+.right {
+    margin-left: 2[x];
+}
+
+.btn-group {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+button{
+    flex: 1;
+    border: solid 3px transparent;
+    margin: 2px;
+    padding: 10px;
+    border: yellow!important;
+    background-color: var(--green-second-skytech-color);
+    box-shadow: 0 0 6px grey;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+
+    // border-radius: 5px;
+}
+
+button:active {
+    box-shadow: 0 0 2px grey;
+}
+
+.annuler{
+    background-color: var(--danger-skytech-color);
+}

@@ -1,0 +1,65 @@
+<div class="card">
+
+
+  <mat-progress-spinner class = "registering" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
+
+  <form>
+    <!-- <form [formGroup]="formGroup"> -->
+
+
+      <div class="banner" style = "text-align: center;">Enregistrement</div>
+
+    <div class="form-group p-4" *ngIf="!showSpinner">
+
+      <!-- Materiel -->
+      <div class="form-item">
+        <mat-form-field appearance="fill">
+          <mat-label>Materiel</mat-label>
+          <mat-select name = "natureMat" [(ngModel)]="dataCommande.materiel">
+            <mat-option *ngFor="let materiel of materiels" [value]="materiel.idMat">
+              {{materiel.libelleMat}}
+            </mat-option>
+            <!-- <mat-option>HP</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Quantité de matériel</mat-label>
+        <div class="d-flex">
+
+          <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom">
+
+        </div>
+      </mat-form-field>
+
+      <!-- Fournisseur -->
+      <div class="form-item">
+        <mat-form-field appearance="fill">
+          <mat-label>Fournisseur</mat-label>
+          <mat-select name = "natureMat" [(ngModel)]="dataCommande.fournisseur">
+            <mat-option *ngFor="let fournisseur of fournisseurs" [value]="fournisseur.idFournis">
+              {{fournisseur.nomFournis}}
+            </mat-option>
+            <!-- <mat-option>HP</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="btn-group p-4">
+      <button class="annuler" (click) = "cancelCreation()">Annuler</button>
+      <button type="submit" (click) = "registerCommande()">Valider</button>
+      <!-- <button type="submit" >Valider</button> -->
+    </div>
+
+  </form>
+
+</div>
