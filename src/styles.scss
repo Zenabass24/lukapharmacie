@@ -5,7 +5,9 @@
     --primary-active-luka-color: rgb(0, 121, 241);
     --blue-luka-color: dodgerblue;
     --blue-active-luka-color: rgb(28, 113, 199);
-    --green-luka-color: green;
+    --green-luka-color: #556B2F;
+    // --green-luka-color: #e0e0e0;
+    --green-olive-luka-color: #006400;
     --green-active-luka-color: rgb(2, 103, 2);
     --green-second-luka-color: rgba(0, 222, 111, 0.886); // rgba(0, 222, 111, 0.886)
     --green-second-active-luka-color: rgb(29, 192, 110);
@@ -18,9 +20,15 @@
   
   
     --secondary-luka-color: rgb(81, 168, 255);
-    --danger-luka-color: rgb(255, 72, 72);
-    --white-luka-color: rgb(255, 255, 255);
+    --danger-luka-color: rgb(253, 124, 124); //rgb(255, 72, 72)
+    --white-luka-color: rgb(255, 149, 149);
     --grey-luka-color: rgb(209, 232, 255);
+
+    --title1-text-size: 13px;
+    --title2-text-size: 12px;
+    --title3-text-size: 11px;
+
+
   
     // --orange-luka-color: rgb(255, 192, 76);
   
@@ -63,3 +71,14 @@
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+mat-dialog-container {
+    // border: solid 1px red;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+* {
+    font-size: var(--title3-text-size);
+}

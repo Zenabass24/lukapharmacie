@@ -17,6 +17,12 @@
 
     button {
         margin: 0 10px;
+
+    }
+
+    button[mat-mini-fab] {
+        width: 35px;
+        height: 35px;
     }
 
     .add, .add_cloud, .update, .filter, .more {

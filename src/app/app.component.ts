@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
   
   public updateMessage (data: any): void {
     console.log ("Server notification: ", data)
-    alert(data)
+    // alert(data)
+    console.log (data )
   }
 
   public sendMessage (): void {
@@ -41,7 +42,4 @@ export class AppComponent implements OnInit {
     this.websocketService.emit('client_notifications', message)
   }
 
-
-
-  
 }

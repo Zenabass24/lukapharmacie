@@ -5,15 +5,15 @@
         </div>
         <mat-card>
             <mat-card-actions class="d-flex justify-content-between">
-                <!-- <div>
+                <div>
                     <button mat-mini-fab class="button-color add" color="primary" aria-label="Example fab with a heart icon" (click)="modalRegisterPharmacy()">
                         <mat-icon matPrefix>add</mat-icon>
                     </button>
 
-                    <button mat-mini-fab class="button-color add_cloud" color="primary" aria-label="Example fab with a heart icon" >
+                    <button disabled mat-mini-fab class="button-color add_cloud" color="primary" aria-label="Example fab with a heart icon" >
                         <mat-icon matPrefix>cloud_download</mat-icon>
                     </button>
-                </div> -->
+                </div>
                 <div class="input_container d-flex align-items-center">
                     <mat-icon matPrefix>search</mat-icon>
                     <input matInput placeholder="Rechercher...">
@@ -75,7 +75,7 @@
                         <div class="element-diagram">
                             <img src="../../../../assets/pills-161087_1920.png" alt="" srcset="">
                         </div>
-                        <div class="element-name"> {{element.name}} </div>
+                        <div class="element-name"> {{element.nomProduit}} </div>
     
                     </div>
                     <div class="infos">

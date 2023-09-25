@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeComponent } from './vues/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProduitsComponent } from './vues/produits/produits.component';
 import { PharmaciesComponent } from './vues/pharmacies/pharmacies.component';
 import { ClientsComponent } from './vues/clients/clients.component';
@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { PageNotFoundComponent } from './vues/page-not-found/page-not-found.component';
 import { GestionPharmacieModule } from './gestion-pharmacie/gestion-pharmacie.module';
+import { DialogNewLivraisonComponent } from './components/dialog-new-livraison/dialog-new-livraison.component';
+import { DialogNewProductComponent } from './components/dialog-new-product/dialog-new-product.component';
+import { DialogNewFournisseurComponent } from './components/dialog-new-fournisseur/dialog-new-fournisseur.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { GestionPharmacieModule } from './gestion-pharmacie/gestion-pharmacie.mo
     PlaintesComponent,
     PaiementsComponent,
     CommandesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DialogNewLivraisonComponent,
+    DialogNewProductComponent,
+    DialogNewFournisseurComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import { GestionPharmacieModule } from './gestion-pharmacie/gestion-pharmacie.mo
     HttpClientModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     AuthenticationModule,
     PharmaciesModule,

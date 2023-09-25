@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap, timeout } from 'rxjs';
+import { SERVER_URL } from 'src/app/url';
 
 
 interface AgentData {
@@ -8,7 +9,7 @@ interface AgentData {
   agentPassword: string
 }
 
-const baseUrl = "http://127.0.0.1:8002/api/v1/agents"
+const baseUrl = `${SERVER_URL}/agents`
 
 const headers= new HttpHeaders()
 .set('content-type', 'application/json')
