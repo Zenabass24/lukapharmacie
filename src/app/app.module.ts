@@ -24,6 +24,7 @@ import { GestionPharmacieModule } from './gestion-pharmacie/gestion-pharmacie.mo
 import { DialogNewLivraisonComponent } from './components/dialog-new-livraison/dialog-new-livraison.component';
 import { DialogNewProductComponent } from './components/dialog-new-product/dialog-new-product.component';
 import { DialogNewFournisseurComponent } from './components/dialog-new-fournisseur/dialog-new-fournisseur.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { DialogNewFournisseurComponent } from './components/dialog-new-fournisse
     DialogNewLivraisonComponent,
     DialogNewProductComponent,
     DialogNewFournisseurComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,

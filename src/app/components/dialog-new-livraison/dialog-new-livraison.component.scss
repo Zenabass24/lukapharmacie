@@ -14,9 +14,7 @@
         width: 100%;
       }
       
-    .example-full-width {
-        width: 100%;
-    }
+
     .line {
         display: flex;
         align-items: center;
@@ -33,6 +31,13 @@
 mat-form-field {
     // border: solid 1px red;
     width: 100%;
+    padding: 5px!important;
+    // height: 40px;
+
+
+    .mat-mdc-form-field-infix {
+        padding-top: 0px!important;
+    }
 }
 
 .left {
@@ -76,4 +81,26 @@ button:active {
 .message-alert {
     color: var(--danger-luka-color);
     margin-bottom: 20px;
+}
+
+.progress_spinner {
+    width: 35px;
+    height: 35px;
+}
+
+
+.products_to_register_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product_item {
+    border-radius: 32px;
+    background-color: aquamarine;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
 }

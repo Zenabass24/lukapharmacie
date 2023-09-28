@@ -1,8 +1,8 @@
 <div class="card">
 
-    <mat-progress-spinner class = "registering" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
+    <mat-progress-spinner class = "progress_spinner" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
   
-    <form>
+    <form (ngSubmit)="registerLivraison(form)" #form="ngForm" *ngIf = "!showSpinner">
   
         <div class="banner">Nouvelle Livraison</div>
   
@@ -19,16 +19,19 @@
                         aria-label="Number"
                         matInput
                         [formControl]="fournisseurControl"
-                        [matAutocomplete]="auto">
+                        [matAutocomplete]="auto"
+                        [(ngModel)]="fournisseurChoosen"
+                        name="fournisseur">
+                <!-- <input type="hidden" name="idFournisseur" value=""> -->
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredFournisseurs | async" [value]="option.nom">
+                    <mat-option *ngFor="let option of filteredFournisseurs | async " [value]="option.nom">
                     {{option.nom}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            <span class="material-icons" (click)="registerNewFournisseur=true">add</span>
+            <!-- <span class="material-icons" (click)="registerNewFournisseur=true">add</span> -->
         </div>
-        <div *ngIf="registerNewFournisseur" class="message-alert">Le fournisseur saisie n'est pas repertorié dans votre liste de founisseurs, voulez l'ajouter ? <button mat-button (click)="modalRegisterFournisseur()">Nouveau fournisseur</button></div>
+        <div *ngIf="registerNewFournisseur" class="message-alert">Le fournisseur saisie n'est pas repertorié dans votre liste de founisseurs, voulez-vous l'ajouter ? <button mat-button (click)="modalRegisterFournisseur()">Nouveau fournisseur</button></div>
         <!-- <div class="line" *ngIf="registerNewFournisseur">
             <mat-form-field class="example-full-width">
                 <mat-label>Nouveau fournisseur</mat-label>
@@ -39,8 +42,17 @@
             <span class="material-icons" (click)="registerNewFournisseur=false">remove</span>
         </div> -->
 
+        <div class="products_to_register_container">
+            <div class="product_item" mat-button *ngFor="let item of productsToRegister">{{item.name}}</div>
+        </div>
+
         <div class="">
-            <mat-label>Produit 1</mat-label>
+            <mat-label>Produit {{productsToRegister.length + 1}}</mat-label>
+            <!-- <ul>
+                <li *ngFor="let product of filteredProducts | async">
+                    <span>{{product.nomProduit}}</span>
+                </li>
+            </ul> -->
         </div>
 
         <!-- Nom du produit -->
@@ -54,14 +66,16 @@
                         aria-label="Number"
                         matInput
                         [formControl]="productControl"
-                        [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredProducts | async" [value]="option.nomProduit">
-                    {{option.nomProduit}}
+                        [matAutocomplete]="auto_"
+                        ngModel
+                        name="produit">
+                <mat-autocomplete autoActiveSecondOption #auto_="matAutocomplete">
+                    <mat-option *ngFor="let product of filteredProducts | async" [value]="product.nomProduit">
+                    {{product.nomProduit}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            <span class="material-icons" (click)="registerNewProduct=true">add</span>
+            <!-- <span class="material-icons" (click)="registerNewProduct=true">add</span> -->
         </div>
 
         <!-- Date d'expiration -->
@@ -69,7 +83,7 @@
         <div class="form-item">
             <mat-form-field class="example-form-field">
                 <mat-label>Date d'expiration</mat-label>
-                <input matInput [matDatepicker]="datepicker">
+                <input matInput [matDatepicker]="datepicker" [(ngModel)]="dateExpiration" name="dateExpiration">
                 <mat-hint>Format de date: MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
                 <mat-datepicker #datepicker>
@@ -86,7 +100,7 @@
             <mat-form-field class="example-full-width">
                 <mat-label>Quantité</mat-label>
                 <div class="d-flex">
-                    <input type = "number" matInput name = "quantiteStock" >
+                    <input type = "number" matInput [(ngModel)]="quantiteStock" name = "quantiteStock" >
                 </div>
             </mat-form-field>
         </div>
@@ -96,7 +110,7 @@
             <mat-form-field class="example-full-width">
                 <mat-label>Prix Unitaire</mat-label>
                 <div class="d-flex">
-                    <input type = "number" matInput name = "prixUnitaire" >
+                    <input type = "number" matInput [(ngModel)]="prixUnitaire" name = "prixUnitaire" >
                 </div>
             </mat-form-field>
         </div>
@@ -104,12 +118,16 @@
         
         <!-- Stock minimum -->
         <div class="form-item" *ngIf="registerNewProduct">
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width_">
                 <mat-label>Stock minimum</mat-label>
                 <div class="d-flex">
-                    <input type = "number" matInput name = "stockMinimum" >
+                    <input type = "number" matInput [(ngModel)]="stockMinimum" name = "stockMinimum" >
                 </div>
             </mat-form-field>
+        </div>
+
+        <div class="line">
+            <span class="material-icons" (click)="pushProduct()">add</span>
         </div>
 
 
@@ -123,8 +141,8 @@
         </div>
 
         <div class="btn-group p-4">
-        <button class="annuler" (click) = "cancelCreation()">Annuler</button>
-        <button type="submit" (click) = "registerCommande()">Valider</button>
+        <button type="button" class="annuler" (click) = "cancelCreation()">Annuler</button>
+        <button type="submit">Valider</button>
         <!-- <button type="submit" >Valider</button> -->
         </div>
 

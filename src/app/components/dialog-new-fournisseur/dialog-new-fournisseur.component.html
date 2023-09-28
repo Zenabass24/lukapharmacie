@@ -1,39 +1,49 @@
-<p>dialog-new-fournisseur works!</p>
 <div class="card">
 
     <mat-progress-spinner class = "registering" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
   
-    <form>
+    <form (ngSubmit)="registerFournisseur()">
   
         <div class="banner">Nouveau fournisseur</div>
   
         <div class="form-group p-4" *ngIf="!showSpinner">
 
-        <!-- Nom fournisseur -->
-        <div class="form-item">
-            <mat-form-field class="example-full-width">
-                <mat-label>Nom fournisseur</mat-label>
-                <div class="d-flex">
-                    <input type = "number" matInput name = "nomFournisseur" >
-                </div>
-            </mat-form-field>
-        </div>
+            <!-- Nom fournisseur -->
+            <div class="form-item">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nom fournisseur</mat-label>
+                    <div class="d-flex">
+                        <input type = "text" matInput name = "nomFournisseur" [(ngModel)]="fournisseur.nom">
+                    </div>
+                </mat-form-field>
 
+                <mat-form-field class="example-full-width">
+                    <mat-label>Adresse</mat-label>
+                    <div class="d-flex">
+                        <input type = "text" matInput name = "adresse" [(ngModel)]="fournisseur.adresse">
+                    </div>
+                </mat-form-field>
 
+                <mat-form-field class="example-full-width">
+                    <mat-label>Téléphone</mat-label>
+                    <div class="d-flex">
+                        <input type = "tel" matInput name = "telephone" [(ngModel)]="fournisseur.telephone">
+                    </div>
+                </mat-form-field>
 
-
-
-
-
-
-
-
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <div class="d-flex">
+                        <input type = "email" matInput name = "email" [(ngModel)]="fournisseur.email">
+                    </div>
+                </mat-form-field>
+            </div>
 
         </div>
 
         <div class="btn-group p-4">
         <button class="annuler" (click) = "cancelCreation()">Annuler</button>
-        <button type="submit" (click) = "registerCommande()">Valider</button>
+        <button type="submit">Valider</button>
         <!-- <button type="submit" >Valider</button> -->
         </div>
 

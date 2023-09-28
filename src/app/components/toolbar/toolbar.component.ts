@@ -4,6 +4,7 @@ import { ThemePalette } from '@angular/material/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { NotificationsService } from 'src/app/services/notifications.service';
 
 
 @Component({
@@ -28,7 +29,12 @@ export class ToolbarComponent implements OnInit {
 
   public menuClickedToOn: EventEmitter<boolean> = new EventEmitter<boolean> (this.togglerOfMenu)
 
-  constructor( private readonly router: Router, private location: Location,public commonService: CommonService ) { }
+  constructor( 
+    private readonly router: Router, 
+    private location: Location,
+    public commonService: CommonService,
+    public notificationsService: NotificationsService,
+    ) { }
 
   ngOnInit(): void {
 
@@ -62,6 +68,10 @@ export class ToolbarComponent implements OnInit {
 
     this.router.navigate([''])
 
+  }
+
+  public async showNotifications() {
+    const dialog = await this.notificationsService.presentDialog()
   }
 
 

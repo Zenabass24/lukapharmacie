@@ -22,10 +22,10 @@ export class ProduitsComponent implements OnInit {
 
   // TODO: Creer un service de reception des produits depuis le serveur
   public dataSource: IProduit[] = [];
-  columnsToDisplay2 = ['nom', 'quantite', 'prixUnitaire', 'ordonance'];
+  columnsToDisplay2 = ['nom', 'quantite', 'prix unitaire', 'ordonance'];
   columnsToDisplay = ['nomProduit', 'quantiteStock', 'prixUnitaire', 'ordonance'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement: Products | null | undefined;
+  expandedElement: IProduit | null | undefined;
 
   constructor (
     public dialog: MatDialog,
@@ -34,6 +34,7 @@ export class ProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.produitService.getProducts().subscribe((data: IProduit[]) => {
+      
       this.dataSource = data;
       console.log ("Data ", this.dataSource)
     });

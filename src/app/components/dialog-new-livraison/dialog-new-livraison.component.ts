@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, map, startWith } from 'rxjs';
 import { DialogNewProductComponent } from '../dialog-new-product/dialog-new-product.component';
@@ -23,6 +23,7 @@ export class DialogNewLivraisonComponent implements OnInit {
   public filteredFournisseurs!: Observable<IFournisseur[]>;
   // Pour les champs liés au Fournisseur
   public registerNewFournisseur: boolean = false;
+  public fournisseurChoosen!: string
 
 
   // PRODUITS
@@ -31,6 +32,21 @@ export class DialogNewLivraisonComponent implements OnInit {
   public filteredProducts!: Observable<IProduit[]>;
   // Pour les champs liés au Produit
   public registerNewProduct: boolean = false;
+
+  public productsToRegister: any[] = []
+
+  // PRIX UNITAIRE
+  public prixUnitaire: any
+
+  // STOCK MINIMUM
+  public stockMinimum: any
+
+
+  // DATE EXPIRATION
+  public dateExpiration: any
+
+  // QUANTITE
+  public quantiteStock: any
 
   constructor (
     public dialog: MatDialog,
@@ -41,8 +57,8 @@ export class DialogNewLivraisonComponent implements OnInit {
   async ngOnInit() {
     await this.getRemoteFournisseurs ()
     await this.getRemoteProducts ()
-    this.filterFournisseur ()
     this.filterProducts ()
+    this.filterFournisseur ()
   }
 
 
@@ -53,9 +69,11 @@ export class DialogNewLivraisonComponent implements OnInit {
     );
   }
   private _filterFournisseur(value: string): IFournisseur[] {
+    if (!value) return []
     const filterValue = value.toLowerCase();
     const result = this.listFournisseurs.filter(fournisseur => fournisseur.nom.toLowerCase().includes(filterValue))
-    result.length <=0 ? this.registerNewFournisseur=true : this.registerNewFournisseur = false
+    // console.log ("Fournisseur Filter...", result)
+    result.length <=0 && filterValue ? this.registerNewFournisseur=true : this.registerNewFournisseur = false
     return result;
   }
 
@@ -67,15 +85,15 @@ export class DialogNewLivraisonComponent implements OnInit {
     );
   }
   private _filterProduct(value: string): IProduit[] {
+    if (!value) return []
     const filterValue = value.toLowerCase();
     const result = this.listProducts.filter(product => product.nomProduit.toLowerCase().includes(filterValue))
+    // console.log ("Product Filter...", result)
     return result
   }
 
 
-  public registerCommande () {
 
-  }
 
   public cancelCreation () {
     
@@ -95,7 +113,7 @@ export class DialogNewLivraisonComponent implements OnInit {
   }
 
   private async getRemoteProducts () {
-    this.produitService.getProducts().subscribe({
+    this.produitService.getFullProducts().subscribe({
       next: data => {
         this.listProducts = data
         console.log ("Produits ", data)
@@ -123,6 +141,7 @@ export class DialogNewLivraisonComponent implements OnInit {
     )
   }
 
+  // TODO: Recuperer l'id du fournisseur cree pour poursuivre la l'enregistrement de la livraison
   public modalRegisterFournisseur () {
     const dialogRef = this.dialog.open(
       DialogNewFournisseurComponent,
@@ -134,6 +153,92 @@ export class DialogNewLivraisonComponent implements OnInit {
         console.log ('Dialogue result...', result)
       }
     )
+  }
+
+
+
+  // Pour ajouter un nouveau produit de la livraison
+  public pushProduct () {
+    // Controller si les champs lies a la livraison sont saisies
+    if (!this.productControl.value || !this.quantiteStock ) return alert('Veuillez renseigner tous informations sur le produit livré')
+
+    const newP = this.listProducts.filter(product => product.nomProduit.toLowerCase().includes(this.productControl.value ? this.productControl.value.toLowerCase(): ''))
+    if (newP.length === 1) { 
+      // Verifier si l'id n'est pas deja contenu dans la liste
+      if (this.productsToRegister.filter(item => item.id.includes(newP[0]._id? newP[0]._id: '')).length > 0) 
+       {this.productControl.setValue('');return alert('Ce produit a deja ete saisie...')}
+      //  Controller les autres champs
+
+      this.productsToRegister.push (
+        {_id: newP[0]._id ? newP[0]._id: '', 
+        name: newP[0].nomProduit ? newP[0].nomProduit: '', 
+        quantite: this.quantiteStock, 
+        prixUnitaire: this.prixUnitaire,
+        stockMinimum: this.stockMinimum
+      })
+      console.log (this.productsToRegister)
+      // Vider les champs...
+      this.productControl.setValue('')
+      this.quantiteStock = ''
+      this.dateExpiration = ''
+      this.prixUnitaire = ''
+      this.stockMinimum = ''
+    } else {
+      console.log ("Le produit saisie n'est pas enregistred...")
+      alert("Le produit saisie n'est pas reconnu...")
+      // TODO:
+    }
+  }
+
+  // Pour soumission du formulaire
+  public registerLivraison (form: NgForm) {
+    console.log (form.value)
+    
+    const newF = this.listFournisseurs.filter(founisseur => founisseur.nom.toLowerCase().includes(this.fournisseurChoosen.toLowerCase()))
+    if (newF.length < 1) {
+      console.log ("Le fournisseur saisie n'est pas enregistred...")
+      return alert("Le fournisseur saisie n'est pas reconnu...")
+    }
+    const idFournisseur = newF[0]._id
+    console.log (idFournisseur)
+    const newP = this.listProducts.filter(product => product.nomProduit.toLowerCase().includes(this.productControl.value ? this.productControl.value.toLowerCase(): ''))
+
+    if (newP.length < 1) {
+      console.log ("Le produit saisie n'est pas enregistred...")
+      return alert("Le produit saisie n'est pas reconnu...")
+    }
+    
+
+    if ( this.productsToRegister.length === 0) {
+      this.productsToRegister.push (
+        {_id: newP[0]._id ? newP[0]._id: '', 
+        name: newP[0].nomProduit ? newP[0].nomProduit: '', 
+        quantite: this.quantiteStock, 
+        prixUnitaire: this.prixUnitaire,
+        stockMinimum: this.stockMinimum
+      })
+    }
+
+
+    console.log (newF)
+    this.showSpinner=true
+
+    this.produitService.registerProduct({idFournisseur, produits: this.productsToRegister}).subscribe({
+      next: (data: any) => {
+        this.showSpinner=false
+        console.log("RESULT Register Livraison...", data);
+        alert(data.message)
+      },
+      error: (error: any) => {
+        this.showSpinner=false
+        console.log ("ERROR: ", error)
+      }
+    })
+    // setTimeout(
+    //   () => {
+    //     this.showSpinner=false
+    //   }, 3000
+    // )
   }
 
 

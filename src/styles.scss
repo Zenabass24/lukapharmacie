@@ -28,7 +28,6 @@
     --title2-text-size: 12px;
     --title3-text-size: 11px;
 
-
   
     // --orange-luka-color: rgb(255, 192, 76);
   
@@ -72,6 +71,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.progress_spinner {
+    width: 35px!important;
+    height: 35px!important;
+}
 
 mat-dialog-container {
     // border: solid 1px red;
@@ -82,3 +85,4 @@ mat-dialog-container {
 * {
     font-size: var(--title3-text-size);
 }
+

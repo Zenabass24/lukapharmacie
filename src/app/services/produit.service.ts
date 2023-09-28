@@ -17,15 +17,20 @@ export class ProduitService {
     private readonly http: HttpClient
   ) { 
     var token = JSON.parse(Object(window.localStorage.getItem('token')))  
-    this.baseURL = `${SERVER_URL}/pharmacies/${token.pharmacieRef}/produits`
+    this.baseURL = `${SERVER_URL}/pharmacies/${token.pharmacieRef}`
   }
 
   public getProducts (): Observable<any> {
     console.log (this.baseURL)
-    return this.http.get(`${this.baseURL}/get`)
+    return this.http.get(`${this.baseURL}/produits/get`)
+  }
+
+  public getFullProducts (): Observable<any> {
+    console.log (this.baseURL)
+    return this.http.get(`${SERVER_URL}/produits/get`)
   }
 
   public registerProduct (data: any): Observable<any> {
-    return this.http.post(`${this.baseURL}/register`, data, { headers })
+    return this.http.post(`${this.baseURL}/livraisons/register`, data, { headers })
   }
 }
