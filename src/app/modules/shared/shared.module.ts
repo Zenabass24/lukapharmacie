@@ -23,6 +23,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
     MatCardModule,
     MatDialogModule,
     MatAutocompleteModule,
+    MatSnackBarModule,
     FormsModule,
   ],
   exports: [
@@ -74,6 +76,7 @@ import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
     MatCardModule,
     MatDialogModule,
     MatAutocompleteModule,
+    MatSnackBarModule,
     FormsModule,
     ToolbarComponent,
   ],
