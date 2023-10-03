@@ -24,10 +24,12 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NotificationsComponent } from 'src/app/components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
-    ToolbarComponent
+    ToolbarComponent,
+    NotificationsComponent,
   ],
   imports: [
     CommonModule,
@@ -79,6 +81,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule,
     FormsModule,
     ToolbarComponent,
+    NotificationsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

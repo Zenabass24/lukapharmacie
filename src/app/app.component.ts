@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as io from 'socket.io-client';
 import { WebsocketService } from './services/websocket.service';
+import { NotificationsService } from './services/notifications.service';
+import { SnackBarService } from './services/snack-bar.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +12,29 @@ import { WebsocketService } from './services/websocket.service';
 export class AppComponent implements OnInit {
 
   constructor (
-    private websocketService: WebsocketService
+    private websocketService: WebsocketService,
+    private notificationsService: NotificationsService,
+    private snackBarController: SnackBarService,
   ) { }
 
   ngOnInit(): void {
+    this.initApp ()
+
+  }
+
+  private initApp () {
+    this.notificationsService.getPharmNotifications().subscribe({
+      next: data => {
+        console.log (data)
+      },
+      error: err => {
+        console.log (err)
+      },
+      complete: () => {
+        console.log ('complete')
+      }
+    })
+
     this.websocketService.listen ('typing').subscribe(
       (data: any) => {
         this.updateFeedback (data)
@@ -34,6 +55,7 @@ export class AppComponent implements OnInit {
   public updateMessage (data: any): void {
     console.log ("Server notification: ", data)
     // alert(data)
+    this.snackBarController.openSnackBar ('Commande en attente')
     console.log (data )
   }
 

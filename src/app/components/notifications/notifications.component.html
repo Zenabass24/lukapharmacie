@@ -1,1 +1,27 @@
-<p>notifications works!</p>
+<div class="card_">
+
+    <mat-progress-spinner class = "progress_spinner" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
+
+    <div class="banner">Notifications</div>
+
+    <div>
+        <mat-list *ngIf="notifications">
+            <mat-list-item *ngFor="let notif of notifications"  [ngClass]="notif.statut=='unread'?'bg':''"> 
+                <div class="notif-container">
+                    <div class="puce" [ngClass]="notif.statut=='unread'?'green':'grey'"></div>
+                    <div class="notif-content"  [ngClass]="notif.statut=='unread'?'bold':''">
+                        <span>Nouvelle commande...</span>
+                        <button mat-button (click)="manageNotif(notif.id)">Gérer</button>
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-list>
+        <div class="" *ngIf="notifications">
+            <button mat-button>Voir l'historique</button>
+        </div>
+        <div class="not_found_container" *ngIf="!notifications">
+            <span>Vous n'avez aucune notification</span>
+        </div>
+    </div>
+
+</div>

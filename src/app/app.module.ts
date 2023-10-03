@@ -39,8 +39,7 @@ import { NotificationsComponent } from './components/notifications/notifications
     PageNotFoundComponent,
     DialogNewLivraisonComponent,
     DialogNewProductComponent,
-    DialogNewFournisseurComponent,
-    NotificationsComponent,
+    DialogNewFournisseurComponent,    
   ],
   imports: [
     BrowserModule,

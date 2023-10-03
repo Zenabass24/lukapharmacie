@@ -17,6 +17,15 @@
     --yellow-active-luka-color: rgb(207, 207, 4);
     --pink-luka-color: rgb(242, 85, 161);
     --pink-active-luka-color: rgb(175, 25, 97);
+
+    --app-luka-antiquewhite-bg-color: antiquewhite;
+    --app-luka-azure-bg-color: azure;
+    --app-luka-beige-bg-color: beige;
+    --app-luka-cornsilk-bg-color: cornsilk;
+    --app-luka-floralwhite-bg-color: floralwhite;
+    --app-luka-gainsboro-bg-color: gainsboro;
+    --app-luka-lavender-bg-color: lavender;
+    --app-luka-lavenderblush-bg-color: lavenderblush;
   
   
     --secondary-luka-color: rgb(81, 168, 255);
@@ -27,6 +36,7 @@
     --title1-text-size: 13px;
     --title2-text-size: 12px;
     --title3-text-size: 11px;
+    --title4-text-size: 10px;
 
   
     // --orange-luka-color: rgb(255, 192, 76);
@@ -84,5 +94,9 @@ mat-dialog-container {
 
 * {
     font-size: var(--title3-text-size);
+}
+
+.root_container {
+    background-color: var(--app-luka-aliceblue-bg-color);
 }
 

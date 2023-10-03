@@ -22,7 +22,7 @@
 
     <span class="title">{{title}}</span>
 
-    <span class="material-icons" (click)="showNotifications()">notifications_active</span>
+    <span class="material-icons"  [matMenuTriggerFor]="menuNotif">{{getNotifIcon(notifications)}}</span>
 
 
     <div class="infos-user">
@@ -49,6 +49,14 @@
 
           <span>Se déconnecter</span>
         </button>
+
+      </mat-menu>
+
+      <mat-menu   #menuNotif="matMenu">
+
+        <div class="menu-notifications">
+          <app-notifications [notifications]="notifications"></app-notifications>
+        </div>
 
       </mat-menu>
 

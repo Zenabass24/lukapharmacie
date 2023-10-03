@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { INotification } from 'src/app/interfaces';
 import { CommonService } from 'src/app/services/common.service';
 import { NotificationsService } from 'src/app/services/notifications.service';
 
@@ -14,6 +15,36 @@ import { NotificationsService } from 'src/app/services/notifications.service';
 })
 export class ToolbarComponent implements OnInit {
 
+  public notifications!: INotification[]
+  // [
+  //   {
+  //     id: '1',
+  //     notificationType: 'COMMANDE',
+  //     statut: 'unread',
+  //     date: new Date,
+  //     expediteur: 'abcd1234567',
+  //     destinataire: 'abcde123456',
+  //     collectionAttachedRef: '987654zyxwv'
+  //   },
+  //   {
+  //     id: '2',
+  //     notificationType: 'COMMANDE',
+  //     statut: 'read',
+  //     date: new Date,
+  //     expediteur: 'abcd1234567',
+  //     destinataire: 'abcde123456',
+  //     collectionAttachedRef: '987654zyxwv'
+  //   },
+  //   {
+  //     id: '3',
+  //     notificationType: 'COMMANDE',
+  //     statut: 'unread',
+  //     date: new Date,
+  //     expediteur: 'abcd1234567',
+  //     destinataire: 'abcde123456',
+  //     collectionAttachedRef: '987654zyxwv'
+  //   }
+  // ]
 
 
   @Input() inputSidenav!: MatSidenav;
@@ -37,9 +68,8 @@ export class ToolbarComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
     this.user = JSON.parse(Object(window.localStorage.getItem('token')))
-
+    this.getNotifications ()
   }
 
   public goBack () {
@@ -70,8 +100,28 @@ export class ToolbarComponent implements OnInit {
 
   }
 
-  public async showNotifications() {
-    const dialog = await this.notificationsService.presentDialog()
+  public async getNotifications() {
+    const dialog = await this.notificationsService.getPharmNotifications().subscribe({
+      next: data => {
+        console.log ("TOOLBAR NOTIFICATIONS: ", data)
+        data.length > 0 ? this.notifications = data:  this.notifications
+      },
+      error: err => {
+        // this.notifications = undefined
+        console.log(err)
+      }
+    })
+  }
+
+  public getNotifIcon(listNotif: any[]) {
+
+    if (listNotif) {
+      return listNotif.length > 0 ? 'notifications_active': 'notifications'
+    } else {
+      return 'notifications'
+    }
+    
+    return
   }
 
 

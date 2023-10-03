@@ -13,8 +13,8 @@ import { MissionsComponent } from './childrens/missions/missions.component';
   declarations: [
     GestionPharmacieComponent,
     ProduitsComponent,
-    CommandesComponent,
-    MissionsComponent
+    // CommandesComponent,
+    MissionsComponent,
   ],
   imports: [
     CommonModule,

@@ -24,3 +24,13 @@ export interface IProduit {
     autorisationMiseMarche?: String,
     }
 }
+
+export interface INotification {
+    id: string,
+    notificationType: string,
+    statut: string,
+    date: Date,
+    expediteur: string,
+    destinataire: string,
+    collectionAttachedRef: string
+  }
