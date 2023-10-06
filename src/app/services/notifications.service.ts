@@ -4,6 +4,7 @@ import { NotificationsComponent } from '../components/notifications/notification
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SERVER_URL } from '../url';
 import { Observable, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,17 @@ export class NotificationsService {
   constructor(
     private dialog: MatDialog,
     private readonly http: HttpClient,
+    private router: Router
   ) { 
     this.headers = new HttpHeaders().set('Content-Type', 'application/json');
-    var token = JSON.parse(Object(window.localStorage.getItem('token')))  
-    this.baseURL = `${SERVER_URL}/notifications/pharmacies/${token.pharmacieRef}`
+    var localStorage = window.localStorage.getItem('token')
+    if (localStorage) {
+      var token = JSON.parse(Object(localStorage))  
+      this.baseURL = `${SERVER_URL}/notifications/pharmacies/${token.pharmacieRef}`      
+    } else {
+      // this.router.navigate(['/'])
+    }
+
   }
 
   public async presentDialog () {

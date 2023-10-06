@@ -1,10 +1,11 @@
 .root_container {
-    padding: 40px 0;
+    // padding: 40px 0;
+    // height: 100vh;
 }
 
 .img_container {
     // display: flex;
-    padding: 20px;
+    // padding: 20px;
 
     img {
         // flex: 1;
@@ -22,7 +23,7 @@ mat-form-field {
 }
 
 .right {
-    margin-left: 2[x];
+    margin-left: 2px;
 }
 
 
@@ -38,9 +39,9 @@ button{
     margin: 2px;
     padding: 10px;
     border: yellow!important;
-    background-color: var(--green-second-skytech-color);
-    box-shadow: 0 0 6px grey;
-    color: #fff;
+    // background-color: var(--green-second-skytech-color);
+    // box-shadow: 0 0 6px grey;
+    // color: #fff;
     font-weight: 600;
     font-size: 13px;
 
@@ -55,3 +56,59 @@ button:active {
     background-color: var(--danger-skytech-color);
 }
 
+.absolute {
+    // position: absolute;
+    // top: 0;
+    // border: solid 1px red;
+    width: 100%;
+}
+.row_ {
+    height: 100vh;
+}
+.elt-left {
+    flex: 1;
+    background-image: url('../../../../assets/poste-cote-infirmiere.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.elt-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border: solid 1px yellow;
+    max-width: 400px;
+    box-shadow: -6px 0 10px #0000006e;
+}
+
+.img_login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 200px;
+    }
+}
+.form_container {
+    // border: solid 1px grey;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        input, mat-select {
+            margin: 5px 0;
+            border: solid 1.5px rgb(213, 212, 212); //rgb(0, 178, 210)
+            border-radius: 5px;
+            width: 100%;
+            height: 35px;
+            padding: 5px 16px;
+            outline: none;
+            background-color: var(--app-luka-azure-bg-color);
+        }
+    }
+}

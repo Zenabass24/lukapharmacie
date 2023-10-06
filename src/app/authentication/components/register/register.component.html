@@ -1,8 +1,8 @@
 <div class="root_container">
     <div class="container_">
-        <div class="row">
+        <!-- <div class="row absolute">
             <div class="col img_container">
-                <img src="../../../../assets/caduceus-2789577_1920.png" alt="">
+                <!-- <img src="../../../../assets/caduceus-2789577_1920.png" alt=""> -- >
             </div>
             <div class="col">
                 <mat-card>
@@ -16,20 +16,20 @@
                   
                         <div class="form-group p-4" *ngIf="!showSpinner">
 
-                        <!-- Agent -->
+                        <!-- Agent -- >
 
                         
 
-                        <!-- End Agent -->                            
+                        <!-- End Agent -- >                            
                 
-                        <!-- Type -->
+                        <!-- Type -- >
                         <div class="form-item">
                             <mat-form-field appearance="fill">
                             <mat-label>Type de pharmacie</mat-label>
                             <mat-select name = "">
-                                <!-- <mat-option *ngFor="let materiel of materiels" [value]=""> -->
+                                <!-- <mat-option *ngFor="let materiel of materiels" [value]=""> -- >
                                 <mat-option  [value]="">
-                                <!-- {{materiel.libelleMat}} -->
+                                <!-- {{materiel.libelleMat}} -- >
                                 </mat-option>
                                 <mat-option [value]="'DAY'">Pharmacie de Jour</mat-option>
                                 <mat-option [value]="'NIGHT'">Pharmacie de Nuit</mat-option>
@@ -39,31 +39,31 @@
                             </mat-form-field>
                         </div>
                 
-                        <!-- Nom de pharmacie -->
+                        <!-- Nom de pharmacie -- >
                         <mat-form-field class="example-full-width">
                             <mat-label>Nom pharmacie</mat-label>
                             <div class="d-flex">
                 
-                            <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                            <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
                             <input type = "number" matInput name = "nomPharm" >
                 
                             </div>
                         </mat-form-field>
                 
-                        <!-- Adresse -->
+                        <!-- Adresse -- >
                         <div class="form-item">
                             <mat-form-field class="example-full-width">
                                 <mat-label>Adresse</mat-label>
                                 <div class="d-flex">
                     
-                                <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                                <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
                                 <input type = "text" matInput name = "adresse" >
                     
                                 </div>
                             </mat-form-field>
                         </div>
                 
-                        <!-- Coordonnées -->
+                        <!-- Coordonnées -- >
                         <div class="form-item">
                             <div class="d-flex flex-direction-column">
                                 <mat-label>Coordonnées</mat-label>
@@ -74,7 +74,7 @@
                                     <mat-label>Longitude</mat-label>
                                     <div class="d-flex">
                         
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
                                     <input type = "number" matInput name = "longitude" >
                         
                                     </div>
@@ -83,7 +83,7 @@
                                     <mat-label>Latitude</mat-label>
                                     <div class="d-flex">
                         
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
                                     <input type = "number" matInput name = "latitude" >
                         
                                     </div>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                 
-                        <!-- Horaires -->
+                        <!-- Horaires -- >
                         <div class="form-item">
                             <mat-label>Horaires</mat-label>
                             <div class="d-flex">
@@ -99,7 +99,7 @@
                                     <mat-label>Ouverture</mat-label>
                                     <div class="d-flex">
                         
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
                                     <input type = "time" matInput name = "longitude" >
                         
                                     </div>
@@ -108,7 +108,7 @@
                                     <mat-label>Fermeture</mat-label>
                                     <div class="d-flex">
                         
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -->
+                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
                                     <input type = "time" matInput name = "latitude" >
                         
                                     </div>
@@ -127,11 +127,44 @@
                         <div class="btn-group p-4">
                         <button class="annuler" (click) = "cancelCreation()">Annuler</button>
                         <button type="submit" (click) = "registerCommande()">Valider</button>
-                        <!-- <button type="submit" >Valider</button> -->
+                        <!-- <button type="submit" >Valider</button> -- >
                         </div>
                 
                     </form>
                 </mat-card>
+            </div>
+        </div> -->
+
+        <div class="absolute_">
+            <div class="row row_">
+                <div class="img_container elt-left">
+                    <!-- <img src="" alt=""> -->
+                </div>
+                <div class="elt-right">
+                    <div class="img_login">
+                        <img src="../../../../assets/name_login.png" alt="">
+                    </div>
+                    <div class="form_container">
+                        <form action="">
+                            <mat-label>Type de pharmacie</mat-label>
+                            <mat-select name = "">                                
+                                <mat-option [value]="'JOUR'">Pharmacie de Jour</mat-option>
+                                <mat-option [value]="'NUIT'">Pharmacie de Nuit</mat-option>
+                                <mat-option [value]="'GARDE'">Pharmacie de Garde</mat-option>
+                                <mat-option [value]="'H24'">Pharmacie 24h/24</mat-option>
+                                <mat-option [value]="'AUTRE'">Autre...</mat-option>
+                            </mat-select>
+                            <mat-label>Nom pharmacie</mat-label>
+                            <input type="text">
+
+                            mat-form-field
+                            <input type="text">
+                            <input type="text">
+                            <input type="text">
+                            <button>Soumettre</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
