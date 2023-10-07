@@ -27,9 +27,9 @@
 
     <div class="infos-user">
 
-      <button mat-button style="padding: 0 10px; cursor: pointer;">
+      <span style="padding: 0 10px; cursor: pointer;">
         {{user.prenom}} {{user.nom}},
-      </button>
+      </span>
 
       <span> {{user.fonction}}</span>
 
@@ -44,7 +44,7 @@
 
           <span> Rôle</span>
         </button> -->
-        <button mat-menu-item (click) = 'onDisconnect()' >
+        <button (click) = 'onDisconnect()' >
           <span class="material-icons logout">logout</span>
 
           <span>Se déconnecter</span>

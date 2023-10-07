@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { INotification } from 'src/app/interfaces';
 
 
@@ -14,11 +15,16 @@ export class NotificationsComponent {
 
   @Input() public notifications!: INotification[] | undefined
 
-  constructor () {  }
+  constructor (
+    private router: Router
+  ) {  }
 
 
   public manageNotif (notifID: string) {
     console.log ("Manage notif ", notifID, " in working...")
+    // this.router.navigate([`/commandes/details`, notifID])
+    this.router.navigate([`/gestion/commandes/details`, notifID])
+
   }
 
 }

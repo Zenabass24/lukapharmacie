@@ -6,7 +6,7 @@ import { DetailsCommandeComponent } from './details-commande/details-commande.co
 const routes:Routes = [
     {path: '', redirectTo: 'list', pathMatch: 'full'},
     {path: 'list', component: CommandesComponent},
-    {path: ':id/details', component: DetailsCommandeComponent},
+    {path: 'details/:notifID', component: DetailsCommandeComponent},
 ]
 
 @NgModule({

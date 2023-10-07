@@ -47,13 +47,13 @@
 }
 
 .item-menu:hover .ic, .item-menu:hover .txt {
-  color: orange;
+  color: var(--green-olive-luka-color);
   transition: .2s;
   user-select: none;
 }
 
 .item-menu:active .ic, .item-menu:active .txt {
-  color: rgb(255, 119, 0);
+  color: var(--green-active-luka-color);
   transition: .2s;
 }
 

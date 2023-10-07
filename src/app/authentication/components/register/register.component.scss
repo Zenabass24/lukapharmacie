@@ -1,11 +1,15 @@
 .root_container {
     // padding: 40px 0;
-    // height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
 }
 
 .img_container {
     // display: flex;
     // padding: 20px;
+    height: 100%;
+    overflow: hidden;
 
     img {
         // flex: 1;
@@ -33,28 +37,7 @@ mat-form-field {
     margin-top: 20px;
   }
 
-button{
-    flex: 1;
-    border: solid 3px transparent;
-    margin: 2px;
-    padding: 10px;
-    border: yellow!important;
-    // background-color: var(--green-second-skytech-color);
-    // box-shadow: 0 0 6px grey;
-    // color: #fff;
-    font-weight: 600;
-    font-size: 13px;
 
-    // border-radius: 5px;
-}
-
-button:active {
-    box-shadow: 0 0 2px grey;
-}
-
-.annuler{
-    background-color: var(--danger-skytech-color);
-}
 
 .absolute {
     // position: absolute;
@@ -63,7 +46,9 @@ button:active {
     width: 100%;
 }
 .row_ {
+    flex: 1;
     height: 100vh;
+    display: flex;
 }
 .elt-left {
     flex: 1;
@@ -78,8 +63,13 @@ button:active {
     flex-direction: column;
     justify-content: center;
     // border: solid 1px yellow;
-    max-width: 400px;
+    max-width: 500px;
     box-shadow: -6px 0 10px #0000006e;
+    // overflow-y: scroll;
+}
+
+.show_spinner {
+    width: 500px;
 }
 
 .img_login {
@@ -92,9 +82,10 @@ button:active {
 }
 .form_container {
     // border: solid 1px grey;
-    padding: 16px;
+    padding: 5px 16px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 
     form {
         display: flex;
@@ -110,5 +101,50 @@ button:active {
             outline: none;
             background-color: var(--app-luka-azure-bg-color);
         }
+
+        .border_alert {
+            border: solid 1.5px #ff0000; //rgb(0, 178, 210)
+            animation: colorChange 4s linear infinite;
+        }
+
+        @keyframes colorChange {
+            0% {
+              border: solid 1.5px #ff0000; /* Couleur initiale */
+            }
+            50% {
+              border: solid 1.5px #ffe3e3; /* Couleur intermédiaire */
+            }
+            100% {
+              border: solid 1.5px #ff0000; /* Retour à la couleur initiale */
+            }
+          }
+          
     }
 }
+
+
+button{
+    flex: 1;
+    border: solid 3px transparent;
+    margin: 10px 2px;
+    padding: 10px;
+    background-color: var(--green-olive-luka-color);
+    // box-shadow: 0 0 6px grey;
+    --color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    transition: .2s;
+
+    // border-radius: 5px;
+}
+
+button:active {
+    box-shadow: 0 0 2px grey;
+    background-color: var(--green-active-luka-color);
+    color: #ffffff83;
+    transition: .2s;
+
+}
+
+
+

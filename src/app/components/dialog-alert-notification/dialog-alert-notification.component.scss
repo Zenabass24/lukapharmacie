@@ -1,0 +1,41 @@
+.root_container {
+    padding: 16px;
+}
+
+.head {
+    display: flex;
+    justify-content: flex-end;
+
+    .close {
+        cursor: pointer;
+        // padding: 5px;
+        border-radius: 32px;
+        transition: .1s;
+    }
+
+    .close:active {
+        background-color: grey;
+        transition: .1s;
+    }
+
+}
+
+.content {
+    overflow-y: scroll;
+}
+
+.footer {
+    
+    .annuler {
+        border: none;
+        background: transparent;
+    }
+
+    .activer {
+        background-color: var(--primary-luka-color);
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+    }
+}

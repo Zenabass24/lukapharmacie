@@ -26,7 +26,7 @@ export interface IProduit {
 }
 
 export interface INotification {
-    id: string,
+    _id: string,
     notificationType: string,
     statut: string,
     date: Date,
@@ -34,3 +34,33 @@ export interface INotification {
     destinataire: string,
     collectionAttachedRef: string
   }
+
+export interface IPharamcie {
+    typePharm: string,
+    nomPharm: string,
+    adresse: string,
+    telPharm: string,
+    emailPharm: string,
+    coordinates: {
+        longitude: number,
+        latitude: number,
+        accuracy: number
+    },
+    horaires: {
+        ouverture: string,
+        fermeture: string
+    }
+}
+
+export interface IAgent {
+    nom: string,
+    prenom: string,
+    fonction: string,
+    email: string,
+    telephone: string,
+    username: string,
+    password: string,
+    pharmacieRef?: string,
+    roleRef?: string
+  }
+  

@@ -25,6 +25,7 @@ import { DialogNewLivraisonComponent } from './components/dialog-new-livraison/d
 import { DialogNewProductComponent } from './components/dialog-new-product/dialog-new-product.component';
 import { DialogNewFournisseurComponent } from './components/dialog-new-fournisseur/dialog-new-fournisseur.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { DialogAlertNotificationComponent } from './components/dialog-alert-notification/dialog-alert-notification.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NotificationsComponent } from './components/notifications/notifications
     PaiementsComponent,
     CommandesComponent,
     PageNotFoundComponent,
+    DialogAlertNotificationComponent,
     DialogNewLivraisonComponent,
     DialogNewProductComponent,
     DialogNewFournisseurComponent,    

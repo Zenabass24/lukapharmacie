@@ -1,0 +1,33 @@
+.root_container {
+    // padding: 40px 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // border: solid 1px red;
+}
+
+
+.row_ {
+    flex: 1;
+    display: flex;
+    border: solid 1px grey;
+    justify-content: center;
+    height: fit-content;
+
+    mat-card {
+        margin: 5px;
+        min-height: 200px;
+    }
+}
+
+.not_yet_deliver {
+    border: solid 1px red;
+    display: flex;
+    padding: 5px;
+
+    .qr_code_container {
+        width: 200px;
+        height: 200px;
+        border: solid 1px grey;
+    }
+}

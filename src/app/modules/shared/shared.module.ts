@@ -21,9 +21,10 @@ import { MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatStepperModule} from '@angular/material/stepper';
 import { NotificationsComponent } from 'src/app/components/notifications/notifications.component';
 
 @NgModule({
@@ -54,6 +55,12 @@ import { NotificationsComponent } from 'src/app/components/notifications/notific
     MatDialogModule,
     MatAutocompleteModule,
     MatSnackBarModule,
+    MatStepperModule,
+
+    
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    
     FormsModule,
   ],
   exports: [
@@ -79,6 +86,11 @@ import { NotificationsComponent } from 'src/app/components/notifications/notific
     MatDialogModule,
     MatAutocompleteModule,
     MatSnackBarModule,
+    MatStepperModule,
+
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    
     FormsModule,
     ToolbarComponent,
     NotificationsComponent,

@@ -5,10 +5,10 @@
     --primary-active-luka-color: rgb(0, 121, 241);
     --blue-luka-color: dodgerblue;
     --blue-active-luka-color: rgb(28, 113, 199);
-    --green-luka-color: #556B2F;
+    --green-luka-color: #112711; //#556B2F
     // --green-luka-color: #e0e0e0;
-    --green-olive-luka-color: #006400;
-    --green-active-luka-color: rgb(2, 103, 2);
+    --green-olive-luka-color: #00aa00; //#006400
+    --green-active-luka-color: rgb(0, 85, 0);
     --green-second-luka-color: rgba(0, 222, 111, 0.886); // rgba(0, 222, 111, 0.886)
     --green-second-active-luka-color: rgb(29, 192, 110);
     --orange-luka-color: orange;
@@ -98,5 +98,14 @@ mat-dialog-container {
 
 .root_container {
     background-color: var(--app-luka-aliceblue-bg-color);
+}
+
+.centralize {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 

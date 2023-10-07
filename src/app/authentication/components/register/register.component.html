@@ -1,172 +1,145 @@
 <div class="root_container">
-    <div class="container_">
-        <!-- <div class="row absolute">
-            <div class="col img_container">
-                <!-- <img src="../../../../assets/caduceus-2789577_1920.png" alt=""> -- >
-            </div>
-            <div class="col">
-                <mat-card>
-                    <form>
-  
-                        <div class="banner" style = "text-align: center;">Enregistrement</div>
-
-
-
-
-                  
-                        <div class="form-group p-4" *ngIf="!showSpinner">
-
-                        <!-- Agent -- >
-
-                        
-
-                        <!-- End Agent -- >                            
-                
-                        <!-- Type -- >
-                        <div class="form-item">
-                            <mat-form-field appearance="fill">
-                            <mat-label>Type de pharmacie</mat-label>
-                            <mat-select name = "">
-                                <!-- <mat-option *ngFor="let materiel of materiels" [value]=""> -- >
-                                <mat-option  [value]="">
-                                <!-- {{materiel.libelleMat}} -- >
-                                </mat-option>
-                                <mat-option [value]="'DAY'">Pharmacie de Jour</mat-option>
-                                <mat-option [value]="'NIGHT'">Pharmacie de Nuit</mat-option>
-                                <mat-option [value]="'GARDE'">Pharmacie de Garde</mat-option>
-                                <mat-option [value]="'H24'">Pharmacie 24h/24</mat-option>
-                            </mat-select>
-                            </mat-form-field>
-                        </div>
-                
-                        <!-- Nom de pharmacie -- >
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Nom pharmacie</mat-label>
-                            <div class="d-flex">
-                
-                            <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
-                            <input type = "number" matInput name = "nomPharm" >
-                
-                            </div>
-                        </mat-form-field>
-                
-                        <!-- Adresse -- >
-                        <div class="form-item">
-                            <mat-form-field class="example-full-width">
-                                <mat-label>Adresse</mat-label>
-                                <div class="d-flex">
-                    
-                                <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
-                                <input type = "text" matInput name = "adresse" >
-                    
-                                </div>
-                            </mat-form-field>
-                        </div>
-                
-                        <!-- Coordonnées -- >
-                        <div class="form-item">
-                            <div class="d-flex flex-direction-column">
-                                <mat-label>Coordonnées</mat-label>
-                                <button mat-button (click)="getMyPosition()">Ma position</button>
-                            </div>
-                            <div class="d-flex">
-                                <mat-form-field class="left">
-                                    <mat-label>Longitude</mat-label>
-                                    <div class="d-flex">
-                        
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
-                                    <input type = "number" matInput name = "longitude" >
-                        
-                                    </div>
-                                </mat-form-field>
-                                <mat-form-field class="right">
-                                    <mat-label>Latitude</mat-label>
-                                    <div class="d-flex">
-                        
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
-                                    <input type = "number" matInput name = "latitude" >
-                        
-                                    </div>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                
-                        <!-- Horaires -- >
-                        <div class="form-item">
-                            <mat-label>Horaires</mat-label>
-                            <div class="d-flex">
-                                <mat-form-field class="left">
-                                    <mat-label>Ouverture</mat-label>
-                                    <div class="d-flex">
-                        
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
-                                    <input type = "time" matInput name = "longitude" >
-                        
-                                    </div>
-                                </mat-form-field>
-                                <mat-form-field class="right">
-                                    <mat-label>Fermeture</mat-label>
-                                    <div class="d-flex">
-                        
-                                    <!-- <input type = "number" matInput name = "fonction" [(ngModel)]="dataCommande.quantiteCom"> -- >
-                                    <input type = "time" matInput name = "latitude" >
-                        
-                                    </div>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                
-                
-                
-                
-                
-                
-                
-                        </div>
-                
-                        <div class="btn-group p-4">
-                        <button class="annuler" (click) = "cancelCreation()">Annuler</button>
-                        <button type="submit" (click) = "registerCommande()">Valider</button>
-                        <!-- <button type="submit" >Valider</button> -- >
-                        </div>
-                
-                    </form>
-                </mat-card>
-            </div>
-        </div> -->
-
+    <!-- <div class="container_">
         <div class="absolute_">
-            <div class="row row_">
-                <div class="img_container elt-left">
-                    <!-- <img src="" alt=""> -->
-                </div>
-                <div class="elt-right">
-                    <div class="img_login">
-                        <img src="../../../../assets/name_login.png" alt="">
-                    </div>
-                    <div class="form_container">
-                        <form action="">
-                            <mat-label>Type de pharmacie</mat-label>
-                            <mat-select name = "">                                
-                                <mat-option [value]="'JOUR'">Pharmacie de Jour</mat-option>
-                                <mat-option [value]="'NUIT'">Pharmacie de Nuit</mat-option>
-                                <mat-option [value]="'GARDE'">Pharmacie de Garde</mat-option>
-                                <mat-option [value]="'H24'">Pharmacie 24h/24</mat-option>
-                                <mat-option [value]="'AUTRE'">Autre...</mat-option>
-                            </mat-select>
-                            <mat-label>Nom pharmacie</mat-label>
-                            <input type="text">
 
-                            mat-form-field
-                            <input type="text">
-                            <input type="text">
-                            <input type="text">
-                            <button>Soumettre</button>
+        </div>
+    </div> -->
+    <div class="row_">
+        <div class="img_container elt-left">
+            <!-- <img src="" alt=""> -->
+        </div>
+        <div class="elt-right">
+
+            <div class="img_login">
+                <img src="../../../../assets/name_login.png" alt="">
+            </div>
+
+            <div class="form_container" *ngIf="!showSpinner">
+
+
+                <mat-stepper linear #stepper>
+
+                    <mat-step >
+
+                        <form (ngSubmit)="next(form, 1)" #form="ngForm">
+                            <ng-template matStepLabel>La pharmacie</ng-template>
+                            <div>
+                                <mat-label>Type de pharmacie</mat-label>
+                                <mat-select [ngClass]="{'border_alert': typePharmAlertStyle}" name = "typePharm" [(ngModel)]="pharmacie.typePharm" required>                                
+                                    <mat-option [value]="'JOUR'">Pharmacie de Jour</mat-option>
+                                    <mat-option [value]="'NUIT'">Pharmacie de Nuit</mat-option>
+                                    <mat-option [value]="'GARDE'">Pharmacie de Garde</mat-option>
+                                    <mat-option [value]="'H24'">Pharmacie 24h/24</mat-option>
+                                    <!-- <mat-option [value]="'AUTRE'">Autre...</mat-option> -->
+                                </mat-select>
+                            </div>
+
+                            <div class="" *ngIf="pharmacie.typePharm=='AUTRE'">
+                                <mat-label>Indiquez le type de pharmacie</mat-label>
+                                <input [ngClass]="{'border_alert': typePharmAlertStyle}" matInput matInput type="text" name="typePharm" [(ngModel)]="pharmacie.typePharm" required>
+                            </div>
+                            <div class="">
+                                <mat-label>Nom de la pharmacie</mat-label>
+                                <input [ngClass]="{'border_alert': typePharmAlertStyle}" matInput type="text" name="nomPharm" [(ngModel)]="pharmacie.nomPharm" required>
+                            </div>
+
+                            <div>
+                                <mat-label>Adresse...</mat-label>
+                                <input [ngClass]="{'border_alert': adressePharmAlertStyle}" matInput type="text" name="adresse" [(ngModel)]="pharmacie.adresse" required>
+                            </div>
+
+                            <div>
+                                <mat-label>Numero de telephone</mat-label>
+                                <input [ngClass]="{'border_alert': telPharmAlertStyle}" matInput type="text" name="telephonePharm" [(ngModel)]="pharmacie.telPharm" required>
+                            </div>
+
+                            <div>
+                                <mat-label>Adresse mail</mat-label>
+                                <input [ngClass]="{'border_alert': emailPharmAlertStyle}" matInput type="text" name="emailPharm" [(ngModel)]="pharmacie.emailPharm" required>
+                            </div>
+
+                            <div>
+                                <mat-label>Horaires</mat-label>
+                                <div class="d-flex">
+                                    <input [ngClass]="{'border_alert': ouverturePharmAlertStyle}" matInput class="m-1" type="time" name="ouverture" [(ngModel)]="pharmacie.horaires.ouverture" required>
+                                    <input [ngClass]="{'border_alert': fermeturePharmAlertStyle}" matInput class="m-1" type="time" name="fermeture" [(ngModel)]="pharmacie.horaires.fermeture" required>
+                                </div>
+                            </div>
+
+                            <!-- <button type="submit">Suivant</button> -->
+                            <div>
+                                <button mat-button type="submit">Next</button>
+                            </div>
                         </form>
-                    </div>
+
+                    </mat-step>
+
+                    <mat-step>
+
+                      <form (ngSubmit)="next(form, 2)" #form="ngForm">
+                        <ng-template matStepLabel>L'agent</ng-template>
+                        <div class="">
+                            <mat-label>Nom de l'agent</mat-label>
+                            <input [ngClass]="{'border_alert': nomAgentAlertStyle}" type="text" name="nomAgent" [(ngModel)]="agent.nom">
+                        </div>
+    
+                        <div class="">
+                            <mat-label>Prénom...</mat-label>
+                            <input [ngClass]="{'border_alert': prenomAgentAlertStyle}" type="text" name="prenomAgent" [(ngModel)]="agent.prenom">
+                        </div>
+    
+                        <div>
+                            <mat-label>Fonction...</mat-label>
+                            <input [ngClass]="{'border_alert': fonctionAgentAlertStyle}" type="text" name="fonctionAgent" [(ngModel)]="agent.fonction">
+                        </div>
+
+                        <div>
+                            <mat-label>Numero de telephone</mat-label>
+                            <input [ngClass]="{'border_alert': telAgentAlertStyle}" type="tel" name="telAgent" [(ngModel)]="agent.telephone">
+                        </div>
+    
+                        <div>
+                            <mat-label>Adresse mail</mat-label>
+                            <input [ngClass]="{'border_alert': emailAgentAlertStyle}" type="email" name="emailAgent" [(ngModel)]="agent.email">
+                        </div>                        
+                        <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext type="submit">Next</button>
+                        </div>
+                      </form>
+
+                    </mat-step>
+
+
+                    <mat-step>
+
+                        <form (ngSubmit)="next(form, 3)" #form="ngForm">
+                            <ng-template matStepLabel>Informations de connexion</ng-template>
+                            <p>Plus qu'une étape, veuillez renseigner vos identifiants de connexion</p>                    
+                            
+                            <div>
+                                <mat-label>Nom d'utilisateur</mat-label>
+                                <input [ngClass]="{'border_alert': adressePharmAlertStyle}" type="tel" name="usernameAgent" [(ngModel)]="agent.username">
+                            </div>
+
+                            <div>
+                                <mat-label>Mot de passe</mat-label>
+                                <input [ngClass]="{'border_alert': adressePharmAlertStyle}" type="password" name="passwordAgent" [(ngModel)]="agent.password">
+                            </div>   
+                            <div>
+                                <button mat-button matStepperPrevious>Back</button>
+                                <button mat-button type="submit">Terminer</button>
+                            </div>
+                        </form>
+                    </mat-step>
+                </mat-stepper>
+            </div>
+
+            <div class="show_spinner centralize">
+                <div class="form-group p-4" *ngIf="showSpinner">
+                    <mat-progress-spinner class = "progress_spinner" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

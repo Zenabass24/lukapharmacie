@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap, timeout } from 'rxjs';
+import { IAgent, IPharamcie } from 'src/app/interfaces';
 import { SERVER_URL } from 'src/app/url';
 
 
@@ -33,4 +34,23 @@ export class AuthenticationService {
       })
     )
   }
+  public registerPharmacie(pharmacieData: IPharamcie): Observable<any>{
+    return this.http.post(`${SERVER_URL}/pharmacies/register`, pharmacieData, {headers} ).pipe(
+      timeout(5000),
+      tap (res => {
+        console.log('PHARACIE REGISER RESULT...', res)
+      })
+    )
+  }
+
+  public registerAgent(agentData: IAgent): Observable<any>{
+    return this.http.post(`${baseUrl}/register`, agentData, {headers} ).pipe(
+      timeout(5000),
+      tap (res => {
+        console.log('AGENT REGISER RESULT...', res)
+      })
+    )
+  }
+
+
 }

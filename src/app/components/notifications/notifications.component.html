@@ -11,7 +11,7 @@
                     <div class="puce" [ngClass]="notif.statut=='unread'?'green':'grey'"></div>
                     <div class="notif-content"  [ngClass]="notif.statut=='unread'?'bold':''">
                         <span>Nouvelle commande...</span>
-                        <button mat-button (click)="manageNotif(notif.id)">Gérer</button>
+                        <button mat-button (click)="manageNotif(notif._id)">Gérer</button>
                     </div>
                 </div>
             </mat-list-item>
