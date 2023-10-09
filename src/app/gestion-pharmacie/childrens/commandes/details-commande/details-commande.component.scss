@@ -21,13 +21,16 @@
 }
 
 .not_yet_deliver {
-    border: solid 1px red;
+    // border: solid 1px red;
     display: flex;
     padding: 5px;
 
     .qr_code_container {
-        width: 200px;
-        height: 200px;
+        min-width: 200px;
+        min-height: 200px;
         border: solid 1px grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
