@@ -5,6 +5,7 @@ import { CommandesComponent } from './commandes.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { DetailsCommandeComponent } from './details-commande/details-commande.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -17,6 +18,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     CommonModule,
     SharedModule,
     QRCodeModule,
+    MatExpansionModule,
     CommandesRoutingModule,
   ]
 })

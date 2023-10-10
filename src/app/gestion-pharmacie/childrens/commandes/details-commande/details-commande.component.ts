@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class DetailsCommandeComponent {
 
   public showSpinner= true;
+  public deliver_found = true;
 
-  constructor () { }
+  constructor () { 
+    setTimeout(() => {this.showSpinner = false}, 1000)
+  }
 
 }

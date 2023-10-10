@@ -1,23 +1,28 @@
 <div class="page_container">
-    <app-toolbar [inputSidenav]="sideMatNav" [title]="'Gestion pharmacie'" [color_]="'var(--green-luka-color)'"></app-toolbar>
+    <app-toolbar [inputSidenav]="sideMatNav" [title]="'Gestion pharmacie'" [color_]="'#fff'"></app-toolbar> <!--var(--green-luka-color)-->
   
     <mat-sidenav-container style="z-index: 0;">
       <mat-sidenav #sideMatNav mode="side" style="width: 200px; background-color: var(--green-luka-color);">
   
         <nav class="side-menu">
   
+          <div class = "item-menu" [routerLink]="['dash']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/produits') }">
+            <mat-icon class="material-icons">grid_view</mat-icon>
+            <span class="item-menu-label">Tableau de bord</span>
+          </div>
+
           <div class = "item-menu" [routerLink]="['produits']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/produits') }">
-            <span class="material-icons">person</span>
+            <mat-icon>medication</mat-icon>
             <span class="item-menu-label">Produits</span>
           </div>
   
           <div class = "item-menu" [routerLink]="['commandes']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/commandes') }">
-            <span class="material-icons">person</span>
+            <mat-icon>storefront</mat-icon>
             <span class="item-menu-label">Commandes</span>
           </div>
   
           <div class = "item-menu" [routerLink]="['missions']" routerLinkActive="active" [ngClass]="{ 'active-menu': isActive('/missions') }">
-            <span class="material-icons">person</span>
+            <mat-icon>local_shipping</mat-icon>
             <span class="item-menu-label">Missions</span>
           </div>
   

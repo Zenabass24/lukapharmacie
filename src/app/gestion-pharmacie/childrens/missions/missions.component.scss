@@ -1,0 +1,18 @@
+.root_container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    height: 45px;
+    // border: solid 1px grey;
+    margin: 0 0 3px;
+    background-color: #fff;
+    box-shadow: var(--app-card-shadow);
+}
+
+.content {
+    padding: 10px;
+}

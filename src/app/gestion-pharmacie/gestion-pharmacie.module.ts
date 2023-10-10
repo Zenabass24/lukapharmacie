@@ -6,6 +6,7 @@ import { ProduitsComponent } from './childrens/produits/produits.component';
 import { SharedModule } from '../modules/shared/shared.module';
 import { CommandesComponent } from './childrens/commandes/commandes.component';
 import { MissionsComponent } from './childrens/missions/missions.component';
+import { DashboardComponent } from './childrens/dashboard/dashboard.component';
 
 
 
@@ -15,6 +16,7 @@ import { MissionsComponent } from './childrens/missions/missions.component';
     ProduitsComponent,
     // CommandesComponent,
     MissionsComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
