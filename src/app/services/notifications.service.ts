@@ -53,4 +53,8 @@ export class NotificationsService {
       tap( (e) => { console.log ("Result Notifications: ", e)})
     )
   }
+
+  public updateNotificationStatus (): Observable<any> {
+    return this.http.put('', {})
+  }
 }
