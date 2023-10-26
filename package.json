@@ -23,6 +23,7 @@
     "angularx-qrcode": "^16.0.2",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.3",
+    "leaflet": "^1.9.4",
     "lodash": "^4.17.21",
     "material-icons": "^1.13.12",
     "rxjs": "~7.8.0",
