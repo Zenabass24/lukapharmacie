@@ -26,6 +26,7 @@ import { DialogNewProductComponent } from './components/dialog-new-product/dialo
 import { DialogNewFournisseurComponent } from './components/dialog-new-fournisseur/dialog-new-fournisseur.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { DialogAlertNotificationComponent } from './components/dialog-alert-notification/dialog-alert-notification.component';
+import { MapComponent } from './vues/map/map.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DialogAlertNotificationComponent } from './components/dialog-alert-noti
     DialogAlertNotificationComponent,
     DialogNewLivraisonComponent,
     DialogNewProductComponent,
-    DialogNewFournisseurComponent,    
+    DialogNewFournisseurComponent,
+    MapComponent,    
   ],
   imports: [
     BrowserModule,

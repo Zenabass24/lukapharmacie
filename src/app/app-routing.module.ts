@@ -15,6 +15,7 @@ import { PharmaciesRoutingModule } from './vues/pharmacies/pharmacies-routing.mo
 import { GestionPharmacieModule } from './gestion-pharmacie/gestion-pharmacie.module';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { MapComponent } from './vues/map/map.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => AuthenticationModule},
   {
     path: 'home', component: HomeComponent, canActivate: [AdminGuard],
+  },
+  {
+    path: 'map', component: MapComponent,
   },
   {
     path: 'produits', component: ProduitsComponent, canActivate: [AdminGuard],

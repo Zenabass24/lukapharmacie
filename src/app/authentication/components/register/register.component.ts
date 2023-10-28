@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // setTimeout(() => this.getConcent (), 5000)
+    setTimeout(() => this.getConcent (), 5000)
   }
 
   public showSpinner= false; // TODO Ce spinner s'affiche a la soumission du formulaire
