@@ -7,6 +7,7 @@ import { GeolocationService } from 'src/app/services/geolocation.service';
 import { AuthenticationService } from './../../services/authentication.service';
 import { result } from 'lodash';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 
 
@@ -60,7 +61,8 @@ export class RegisterComponent implements OnInit {
     private geolocation: GeolocationService,
     private dialogAlertController: DialogAlertService,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private snackBarController: SnackBarService,
   ) {}
 
   ngOnInit(): void {
@@ -68,6 +70,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public showSpinner= false; // TODO Ce spinner s'affiche a la soumission du formulaire
+  public error = false;
   // SETP 1
   public typePharmAlertStyle: boolean = false;
   public nomPharmAlertStyle: boolean = false;
@@ -238,18 +241,23 @@ export class RegisterComponent implements OnInit {
     console.log ("Pharmacie: ", this.pharmacie)
     console.log ("Agent: ", this.agent)
 
+    // Requete d'enregistrement de la pharmacie
     this.authenticationService.registerPharmacie(this.pharmacie).subscribe({
       next: data => {
         console.log ("Result register pharmacie...", data.result._id)
         this.agent.pharmacieRef = data.result._id
         this.agent.roleRef = 'AGENT_PRINCIPAL'
+        // Apres enregistrement effective de la pharmacie, on procede a l'enregistrement de l'agent
         this.registerAgent ()
       },
       error: error => {
         console.log ("ERROR: ", error)
+        this.showSpinner = false
+        this.error = true
+        this.snackBarController.openSnackBar ('Un problème est survenu sur le serveur')
       },
       complete: () => {
-
+        this.showSpinner = false
       }
     })
 
@@ -263,9 +271,12 @@ export class RegisterComponent implements OnInit {
       },
       error: error => {
         console.log ("ERROR: ", error)
+        this.showSpinner = false
+        this.error = true
+        this.snackBarController.openSnackBar ('Un problème est survenu sur le serveur')
       },
       complete: () => {
-        this.showSpinner = false
+        this.showSpinner = false        
       }
     })
   }
@@ -289,6 +300,12 @@ export class RegisterComponent implements OnInit {
     this.agent.username = ''
     this.agent.password = ''
 
+  }
+
+  public retrySubmit () {
+    this.showSpinner = true;
+    this.error = false;
+    this.submit ();
   }
 
 }

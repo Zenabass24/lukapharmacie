@@ -11,13 +11,11 @@
         <div class="elt-right">
 
             <div class="img_login">
-                <img src="../../../../assets/name_login.png" alt="">
+                <img src="../../../../assets/name_login.png" width="150" alt="">
             </div>
 
-            <div class="form_container" *ngIf="!showSpinner">
-
-
-                <mat-stepper linear #stepper>
+            <div class="form_container" *ngIf="!showSpinner&&!error">
+                <mat-stepper linear #stepper >
 
                     <mat-step >
 
@@ -133,10 +131,15 @@
                         </form>
                     </mat-step>
                 </mat-stepper>
-            </div>
 
-            <div class="show_spinner centralize">
-                <div class="form-group p-4" *ngIf="showSpinner">
+
+            </div>
+            <div class="error_container centralize" *ngIf="error" style="display: flex; flex-direction: column;justify-content: center;">
+                <p style="color: rgb(98, 98, 98); font-size: 20px;">Oops ! Un problème sur le serveur</p>
+                <mat-label (click)="retrySubmit()" style="color: rgb(53, 53, 53); font-size: 16px;cursor: pointer;">Reessayer</mat-label>
+            </div>
+            <div class="show_spinner centralize" *ngIf="showSpinner">
+                <div class="form-group p-4">
                     <mat-progress-spinner class = "progress_spinner" [mode] = "'indeterminate'" *ngIf = "showSpinner" ></mat-progress-spinner>
                 </div>
             </div>

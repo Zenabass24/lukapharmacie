@@ -14,7 +14,7 @@ export class GestionPharmacieComponent implements OnInit {
     private router: Router,
     private websocketService: WebsocketService,
     private notificationsService: NotificationsService,
-    private snackBarController: SnackBarService,    
+    private snackBarController: SnackBarService,
     ) { }
 
   ngOnInit () {

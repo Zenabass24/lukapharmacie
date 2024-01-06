@@ -52,7 +52,7 @@ import { NotificationsComponent } from 'src/app/components/notifications/notific
     MatFormFieldModule,
     MatNativeDateModule,
     MatCardModule,
-    MatDialogModule,
+    
     MatAutocompleteModule,
     MatSnackBarModule,
     MatStepperModule,
@@ -83,7 +83,7 @@ import { NotificationsComponent } from 'src/app/components/notifications/notific
     MatFormFieldModule,
     MatNativeDateModule,
     MatCardModule,
-    MatDialogModule,
+    
     MatAutocompleteModule,
     MatSnackBarModule,
     MatStepperModule,
